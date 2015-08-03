@@ -109,13 +109,13 @@ PhaserGame.prototype = {
 
     create: function () {
 
-        this.player = this.add.sprite(32, this.world.height - 150, 'dude');
+        this.player = this.add.sprite(32, this.world.height - 64, 'dude');
 
         //  We need to enable physics on the player
         this.physics.arcade.enable(this.player);
 
         //  Player physics properties. Give the little guy a slight bounce.
-        this.player.body.gravity.y = 400;
+        this.player.body.gravity.y = 900;
         this.player.body.collideWorldBounds = true;
 
         //create ground
@@ -136,7 +136,8 @@ PhaserGame.prototype = {
         this.physics.arcade.collide(this.player, this.platforms);
 
         //this.player.body.velocity.set(0);
-        this.player.body.velocity.x = 0;
+        this.player.body.velocity.x=0;
+
         if (this.cursors.left.isDown)
         {
             this.player.body.velocity.x = -300;
@@ -148,7 +149,7 @@ PhaserGame.prototype = {
 
         if (this.cursors.up.isDown && this.player.body.touching.down)
         {
-            this.player.body.velocity.y = -500;
+            this.player.body.velocity.y = -600;
         }
         //if (this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR))
         //{
